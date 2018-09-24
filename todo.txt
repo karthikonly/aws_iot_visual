@@ -1,8 +1,8 @@
 Done:
+setup with mongodb
+setup with redis
 
 TODO:
-setup with mongodb - ongoing
-setup with redis - ongoing
 connect to AWS IOT
 read from datastream
 store in mongodb

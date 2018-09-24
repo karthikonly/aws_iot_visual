@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Mongoid for storing data
 gem 'mongoid', '~> 6.2.0'
+# Use Redis for caching
+gem 'redis'
+gem 'redis-namespace'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
