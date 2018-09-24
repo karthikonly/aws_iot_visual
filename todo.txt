@@ -1,0 +1,12 @@
+Done:
+
+TODO:
+setup with mongodb - ongoing
+setup with redis - ongoing
+connect to AWS IOT
+read from datastream
+store in mongodb
+build js controls for date and time range
+finalize chart for realtime + historical data
+build chart for historical data
+build chart for realtime data
