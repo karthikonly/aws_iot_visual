@@ -19,9 +19,6 @@ class MqttClient
   def process_messages
     mqtt_client.subscribe(data_stream_topic => 1)
     logger.info "started listening to: #{data_stream_topic}"
-    topic = "#{@response_stream_topic_prefix}/#"
-    mqtt_client.subscribe(topic => 1)
-    logger.info "started listening to: #{topic}"
 
     mqtt_client.get do |topic, message|
       process_each_message(topic, JSON.parse(message))
@@ -31,14 +28,7 @@ class MqttClient
   def process_each_message(topic, data)
     serial = data['serial_number']
     return unless serial
-    if topic.ends_with? "/#{serial}"
-      logger.info "response topic: #{topic} data: #{data}"
-      $redis.hset serial, :response, data['message']
-      $redis.hset serial, :response_time, Time.now.to_s
-    else
-      logger.info "data received: #{data}"
-      $redis.hmset serial, :message, data['message']
-      $redis.hmset serial, :timestamp, Time.now.to_s
-    end
+    $redis.hmset serial, :timestamp, Time.now.to_s
+    ChartData.process(data)
   end
 end

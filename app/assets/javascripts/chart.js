@@ -1,5 +1,5 @@
 $(function() {
-    Highcharts.chart('container', {
+    Highcharts.chart('historical_container', {
         chart: {
             type: 'scatter',
             margin: [70, 50, 60, 80],

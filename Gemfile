@@ -35,7 +35,8 @@ gem 'aws-sdk', '~> 3.0'
 # Use MQTT gem for talking to AWS-IOT gem
 gem 'mqtt'
 # Use bootstrap
-gem 'bootstrap', '~> 4.1.3'
+gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.7'
 # Use Jquery rails
 gem 'jquery-rails'
 

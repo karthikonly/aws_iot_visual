@@ -9,14 +9,14 @@ integrate MQTT gem
 read from MQTT topic
 finalize chart for realtime + historical data - highcharts
 integrate highchart js to homepage
+create model to store TS and data in mongodb
+tabbed selection using bootstrap
 
 Ongoing:
-create model to store TS in mongodb
-process TS data
+process TS data from MQTT
 
 TODO:
-tabbed selection using bootstrap
-selector for TS
 historical chart: timeseries bar below. no date time selection
+
 MQTT websocket integration for private channel
 realtime data: display from websocket
