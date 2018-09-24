@@ -7,13 +7,16 @@ create homepage
 connect to AWS IOT
 integrate MQTT gem
 read from MQTT topic
+finalize chart for realtime + historical data - highcharts
+integrate highchart js to homepage
 
 Ongoing:
-process TS data
 create model to store TS in mongodb
+process TS data
 
 TODO:
-build js controls for date and time range
-finalize chart for realtime + historical data
-build chart for historical data
-build chart for realtime data
+tabbed selection using bootstrap
+selector for TS
+historical chart: timeseries bar below. no date time selection
+MQTT websocket integration for private channel
+realtime data: display from websocket
