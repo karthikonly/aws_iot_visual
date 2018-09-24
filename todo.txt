@@ -1,11 +1,18 @@
 Done:
 setup with mongodb
 setup with redis
+integrate AWS SDK gem
+integrate Bootstrap gem
+create homepage
+
+Ongoing:
+integrate MQTT gem
 
 TODO:
 connect to AWS IOT
-read from datastream
-store in mongodb
+read from MQTT topic
+
+create model to store TS in mongodb
 build js controls for date and time range
 finalize chart for realtime + historical data
 build chart for historical data
