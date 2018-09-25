@@ -1,0 +1,15 @@
+<div class="table-responsive">
+  <h1>List of Gateways</h1>
+  <table class="table-striped table-condensed table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Serial Number</th>
+    </tr>
+    <% @gateways.each do |gw| %>
+      <tr>
+        <td><%= gw.id %></td>
+        <td><%= gw.serial_number %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

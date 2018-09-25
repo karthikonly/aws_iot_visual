@@ -1,0 +1,17 @@
+<div class="table-responsive">
+  <h1>List of Series</h1>
+  <table class="table-striped table-condensed table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Serial Number</th>
+      <th>TS Name</th>
+    </tr>
+    <% @series.each do |ser| %>
+      <tr>
+        <td><%= ser.id %></td>
+        <td><%= ser.gateway.serial_number %></td>
+        <td><%= ser.ts_name.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

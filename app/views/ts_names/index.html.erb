@@ -1,0 +1,15 @@
+<div class="table-responsive">
+  <h1>List of TimeSeries</h1>
+  <table class="table-striped table-condensed table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Serial Number</th>
+    </tr>
+    <% @ts_names.each do |ts| %>
+      <tr>
+        <td><%= ts.id %></td>
+        <td><%= ts.name %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

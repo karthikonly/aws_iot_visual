@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # set homepage
   root 'home#index'
 
-  get 'home/index'
+  resources :gateways, only: [:index]
+  resources :ts_names, only: [:index]
+  resources :series, only: [:index]
+  resources :points, only: [:index]
 end
