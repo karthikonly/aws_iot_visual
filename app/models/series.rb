@@ -2,8 +2,8 @@ class Series
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_many :chart_data
+  has_many :chart_lines
 
-  field :serial_number, type: String
-  field :name, type: String
+  belongs_to :gateway
+  belongs_to :ts_name
 end

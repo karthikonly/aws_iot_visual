@@ -13,13 +13,12 @@ create model to store TS and data in mongodb
 tabbed selection using bootstrap
 master chart integration
 MQTT sender client with certs
+process and store TS data from MQTT
 
 Ongoing:
-process TS data from MQTT
+historical data: selection of timeseries
+historical data: display chart lines
 
 TODO:
-selection of timeseries
-historical data display
-
 MQTT websocket integration for private channel
 realtime data: display from websocket

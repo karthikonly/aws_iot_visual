@@ -26,9 +26,9 @@ class MqttClient
   end
 
   def process_each_message(topic, data)
-    serial = data['serial_number']
+    serial = data['header']['serial_number']
     return unless serial
     $redis.hmset serial, :timestamp, Time.now.to_s
-    ChartData.process(data)
+    ChartLine.process(data)
   end
 end
