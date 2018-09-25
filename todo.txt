@@ -11,12 +11,15 @@ finalize chart for realtime + historical data - highcharts
 integrate highchart js to homepage
 create model to store TS and data in mongodb
 tabbed selection using bootstrap
+master chart integration
+MQTT sender client with certs
 
 Ongoing:
 process TS data from MQTT
 
 TODO:
-historical chart: timeseries bar below. no date time selection
+selection of timeseries
+historical data display
 
 MQTT websocket integration for private channel
 realtime data: display from websocket
