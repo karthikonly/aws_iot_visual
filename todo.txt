@@ -14,11 +14,14 @@ tabbed selection using bootstrap
 master chart integration
 MQTT sender client with certs
 process and store TS data from MQTT
+controller and views for TS display
+republish data from ensemble/data-stream to ensemble/data-mirror
 
 Ongoing:
-historical data: selection of timeseries
 historical data: display chart lines
+historical data: selection of timeseries
 
 TODO:
+
 MQTT websocket integration for private channel
 realtime data: display from websocket

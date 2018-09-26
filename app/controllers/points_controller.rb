@@ -8,5 +8,9 @@ class PointsController < ApplicationController
       series_id = params[:series_id]
     end
     @points = ChartLine.where(series_id: series_id).only(:time, :value).order_by(time: :asc)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @points.pluck(:time, :value) }
+    end
   end
 end

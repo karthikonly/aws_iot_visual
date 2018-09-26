@@ -1,5 +1,5 @@
 class MqttClient
-  attr_accessor :mqtt_client, :data_stream_topic, :logger
+  attr_accessor :mqtt_client, :data_stream_topic, :logger, :mirror_topic
 
   def initialize(config={})
     @logger = Logger.new(STDOUT)
@@ -12,7 +12,7 @@ class MqttClient
     client.ca_file   = config[:ca_file]
     client.connect
     @data_stream_topic = config[:data_stream_topic]
-    @response_stream_topic_prefix = config[:response_stream_prefix]
+    @mirror_topic = config[:mirror_stream_topic]
     @mqtt_client = client
   end
 
@@ -21,8 +21,13 @@ class MqttClient
     logger.info "started listening to: #{data_stream_topic}"
 
     mqtt_client.get do |topic, message|
+      send_message(mirror_topic, message)
       process_each_message(topic, JSON.parse(message))
     end
+  end
+
+  def send_message(topic, string)
+    mqtt_client.publish(topic, string, retain = false, qos = 1)
   end
 
   def process_each_message(topic, data)

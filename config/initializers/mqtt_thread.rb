@@ -3,8 +3,8 @@ $mqtt_client = MqttClient.new(
   cert_file: "public/server-cert.pem",
   key_file: "public/server-private.key",
   ca_file: "public/verisign-root-ca.pem",
-  data_stream_topic: "devices/data-stream",
-  response_stream_prefix: "devices/response-stream"
+  data_stream_topic: "gateways/data-stream",
+  mirror_stream_topic: "ensemble/data-mirror",
 )
 
 $mqtt_listen_thread = Thread.new {
