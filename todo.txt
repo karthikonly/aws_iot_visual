@@ -17,10 +17,10 @@ process and store TS data from MQTT
 controller and views for TS display
 republish data from ensemble/data-stream to ensemble/data-mirror
 historical data: display chart lines
-
-Ongoing:
 historical data: selection of timeseries
 
-TODO:
+Ongoing:
 MQTT websocket integration for private channel
+
+TODO:
 realtime data: display from websocket

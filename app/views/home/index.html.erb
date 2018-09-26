@@ -12,25 +12,15 @@
         <br/>
         <div class="col-xs-3">
           <label for="gateways">Select Gateway:</label>
-          <select class="form-control" id="gateways">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <select class="form-control" id="gateways_select" data-source="/gateways.json" data-valueKey="serial_number" data-displayKey="serial_number"></select>
         </div>
         <div class="col-xs-3">
           <label for="time_series">Select Time Series:</label>
-          <select class="form-control" id="time_series">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <select class="form-control" id="time_series_select" data-source="/ts_names.json" data-valueKey="name" data-displayKey="name"></select>
         </div>
         <div class="col-xs-3">
           <br/>
-          <button type="button" class="btn btn-primary">Load</button>
+          <button type="button" class="btn btn-primary" id="load_chart">Load</button>
         </div>
       </div>
       <div id="historical_container" style="min-width: 310px; height: 500px; max-width: 100%; margin: 0 auto"></div>
