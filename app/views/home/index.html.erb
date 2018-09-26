@@ -2,17 +2,40 @@
 
 <div>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Historical</a></li>
-    <li><a data-toggle="tab" href="#menu2">Realtime</a></li>
+    <li class="active"><a data-toggle="tab" href="#home"><b>Historical</b></a></li>
+    <li><a data-toggle="tab" href="#menu2"><b>Realtime</b></a></li>
   </ul>
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h3>Realtime Data</h3>
+      <div class="form-group row">
+        <br/>
+        <div class="col-xs-3">
+          <label for="gateways">Select Gateway:</label>
+          <select class="form-control" id="gateways">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+        <div class="col-xs-3">
+          <label for="time_series">Select Time Series:</label>
+          <select class="form-control" id="time_series">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+        <div class="col-xs-3">
+          <br/>
+          <button type="button" class="btn btn-primary">Load</button>
+        </div>
+      </div>
       <div id="historical_container" style="min-width: 310px; height: 500px; max-width: 100%; margin: 0 auto"></div>
     </div>
     <div id="menu2" class="tab-pane fade">
-      <h3>Historical Data</h3>
       <div id="realtime_container" style="min-width: 310px; height: 500px; margin: 0 auto"></div>
     </div>
   </div>

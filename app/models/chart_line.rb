@@ -7,6 +7,12 @@ class ChartLine
   field :time, type: DateTime
   field :value, type: Float
 
+  attr_reader :ticks
+
+  def ticks
+    time.strftime('%Q').to_i
+  end
+
   def self.process data
     logger.info "processing: #{data}"
 

@@ -69,7 +69,8 @@ $(function() {
 
 
 $.getJSON(
-    'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json',
+    // 'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json',
+    '/points.json?series_id=5baa091fe5055a28ac743aef',
     function (data) {
         var detailChart;
 

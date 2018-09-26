@@ -16,12 +16,11 @@ MQTT sender client with certs
 process and store TS data from MQTT
 controller and views for TS display
 republish data from ensemble/data-stream to ensemble/data-mirror
+historical data: display chart lines
 
 Ongoing:
-historical data: display chart lines
 historical data: selection of timeseries
 
 TODO:
-
 MQTT websocket integration for private channel
 realtime data: display from websocket
