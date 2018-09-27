@@ -19,9 +19,12 @@ republish data from ensemble/data-stream to ensemble/data-mirror
 historical data: display chart lines
 historical data: selection of timeseries
 test.rb/copier.rb script to throwback the data in mirror channel
-
-Ongoing:
 MQTT websocket integration for private channel
 
+Ongoing:
+convert realtime chart to timeseries
+display point with current time
+
 TODO:
-realtime data: display from websocket (adjust the scale)
+realtime: multiple timeseries for chart
+parse the private channel message information (waiting for format)

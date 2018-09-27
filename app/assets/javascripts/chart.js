@@ -1,5 +1,7 @@
+var realtime_series = null;
+
 $(function() {
-    Highcharts.chart('realtime_container', {
+    var realtime_chart = Highcharts.chart('realtime_container', {
         chart: {
             type: 'scatter',
             margin: [70, 50, 60, 80],
@@ -65,4 +67,6 @@ $(function() {
             data: [[20, 20], [80, 80]]
         }]
     });
+    realtime_series = realtime_chart.series[0];
+    // console.log(realtime_series);
 });
