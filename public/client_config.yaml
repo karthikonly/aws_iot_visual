@@ -1,8 +1,13 @@
 connect:
   hostname: "http://localhost:3000"
   directory: "/Users/klakshminarayanan/enphase/ens-summit/public"
+  serial_number: "0200"
+  log_file: "/Users/klakshminarayanan/enphase/ens-summit/public/output.log"
 
 mqtt:
   ca_file_path: "/Users/klakshminarayanan/enphase/ens-summit/public/verisign-root-ca.pem"
   aws_mqtt_endpoint: "a1n5u982zrd0mu.iot.us-east-1.amazonaws.com"
   data_stream: "devices/data-stream"
+  source_stream: "ensemble/data-stream"
+  destination_stream: "ensemble/data-mirror"
+

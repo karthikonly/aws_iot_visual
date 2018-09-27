@@ -18,9 +18,10 @@ controller and views for TS display
 republish data from ensemble/data-stream to ensemble/data-mirror
 historical data: display chart lines
 historical data: selection of timeseries
+test.rb/copier.rb script to throwback the data in mirror channel
 
 Ongoing:
 MQTT websocket integration for private channel
 
 TODO:
-realtime data: display from websocket
+realtime data: display from websocket (adjust the scale)
