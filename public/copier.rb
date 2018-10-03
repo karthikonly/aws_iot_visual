@@ -35,19 +35,25 @@ end
 
 def copy_loop
   $client.subscribe($source_stream => 1)
-  puts "started listening to: #{$source_stream}"
+  puts "#{Time.now} started listening to: #{$source_stream}"
 
   $client.get do |topic, message|
-    puts "republished message of size: #{message.size}: #{message}"
+    puts "#{Time.now} republished message of size: #{message.size}: #{message}"
     $client.publish($destination_stream, message, retain = false, qos = 1)
   end
 end
 
 def main
   load_config
-  init_mqtt_client
   # daemonize
-  copy_loop
+  loop do
+    begin
+      init_mqtt_client
+      copy_loop
+    rescue => e
+      STDERR.puts "#{Time.now} Exception caught: #{e}. Continuuing again."
+    end
+  end
 end
 
 main
