@@ -48,7 +48,7 @@ SigV4Utils.getSignedUrl = function(host, region, credentials) {
 
 
 $(function() {
-    var signed_url = SigV4Utils.getSignedUrl('a1n5u982zrd0mu.iot.us-east-1.amazonaws.com', 'us-east-1', {'secretAccessKey': 'm/JkJ/Z1KL0u4ibZgDnoGGPU9MJIJAhp38qVqMrR', 'accessKeyId': 'AKIAIOT3XMRGRUFP4HYQ'})
+    var signed_url = SigV4Utils.getSignedUrl('a1n5u982zrd0mu.iot.us-east-1.amazonaws.com', 'us-east-1', {'secretAccessKey': gon.aws_secret_access_key, 'accessKeyId': gon.aws_access_key_id})
     // console.log(signed_url);
     var client = new Paho.MQTT.Client(signed_url, 'websocket_client');
     // console.log(client);

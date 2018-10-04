@@ -40,6 +40,9 @@ gem 'bootstrap-sass', '~> 3.3.7'
 # Use Jquery rails
 gem 'jquery-rails'
 
+# Use gon to send variables to client
+gem 'gon'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

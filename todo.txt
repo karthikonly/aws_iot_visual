@@ -22,6 +22,7 @@ test.rb/copier.rb script to throwback the data in mirror channel
 MQTT websocket integration for private channel
 
 Ongoing:
+sending secret and client id to javascript
 convert realtime chart to timeseries
 display point with current time
 
