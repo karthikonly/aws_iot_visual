@@ -6,6 +6,7 @@ class Activation
 	TYPES = ["accb", "mats", "pcus", "batteries", "meters", "qrelays"]
 
 	# basic site parameters
+  field :siteid, type: String
 	field :name, type: String
 	field :location_zip, type: String
 	field :location_city, type: String
@@ -25,8 +26,8 @@ class Activation
 	before_save :update_siteid
 
   def update_siteid
-		self.id |= BSON::ObjectId.from_time(Time.now.utc)
-    self['siteid'] |= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
+		self.id ||= BSON::ObjectId.from_time(Time.now.utc)
+    self.siteid ||= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
   end
 
   def full_address
