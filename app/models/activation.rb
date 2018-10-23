@@ -22,6 +22,8 @@ class Activation
 	field :discovered_count, type: Hash
 	field :discovered, type: Hash
 
+	# before_save :update_siteid
+
   def siteid
     Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
   end

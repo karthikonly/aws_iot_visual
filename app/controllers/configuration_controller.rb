@@ -15,6 +15,9 @@ class ConfigurationController < ApplicationController
     comm_settings['mqtt_command_stream'] = "gateways/command-stream/#{serial_number}"
     comm_settings['mqtt_response_stream'] = "gateways/response-stream/#{serial_number}"
     comm_settings['mqtt_live_stream'] = "gateways/live-stream/#{serial_number}"
+    comm_settings['mqtt_ca_cert'] = File.read("#{Rails.root.to_s}/public/verisign-root-ca.pem")
+    comm_settings['mqtt_client_cert'] = File.read("#{Rails.root.to_s}/public/0001-cert.pem")
+    comm_settings['mqtt_private_key'] = File.read("#{Rails.root.to_s}/public/0001-private.key")
     config['authorized_site_inventory'] = activation.provisioned
     render json: config
   end
