@@ -26,4 +26,7 @@ class Activation
     Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
   end
 
+  def full_address
+    [self.location_address, self.location_city, self.location_zip, self.location_state].join(', ')
+  end
 end

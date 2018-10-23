@@ -1,0 +1,18 @@
+<h1>List of Sites</h1>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>Site Id</th>
+      <th>Site Name</th>
+      <th>Address</th>
+    </tr>
+    <% @activations.each do |activation| %>
+      <tr>
+        <td><%= activation.siteid%></td>
+        <td><%= activation.name %></td>
+        <td><%= activation.full_address %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -43,6 +43,9 @@ gem 'jquery-rails'
 # Use gon to send variables to client
 gem 'gon'
 
+# use ffaker to create fake sites
+gem 'ffaker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

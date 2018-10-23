@@ -1,5 +1,7 @@
 class ConfigurationController < ApplicationController
+
   skip_before_action :verify_authenticity_token
+
   def get
     config = JSON.parse(File.read("#{Rails.root.to_s}/config.json"))
     serial_number = params[:serial_number]
