@@ -1,0 +1,67 @@
+{
+  "comm_settings": {
+    "site_id": "234234234",
+    "mqtt_url": "mqtts://a1n5u982zrd0mu-ats.iot.us-east-1.amazonaws.com",
+    "mqtt_ca_cert": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoSEwDQYJKoZIhvcNAQEL\n...----END CERTIFICATE-----\n",
+    "mqtt_client_cert": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoSEwDQYJKoZIhvcNAQEL\n...----END CERTIFICATE-----\n",
+    "mqtt_private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoYJKoZIhvcNAQEL\n...-----END RSA PRIVATE KEY-----\n",
+    "mqtt_data_stream": "gateways/data-stream",
+    "mqtt_command_stream": "gateways/command-stream/123-456-7890",
+    "mqtt_response_stream": "gateways/response-stream/123-456-7890",
+    "mqtt_live_stream": "gateways/live-stream/123-456-7890",
+    "log_update_s3_bucket": "s3://url",
+    "wifi_settings": {
+      "enabled": true,
+      "wifi_network": "wifi_network_name",
+      "wifi_credentials": "password"
+    }
+  },
+  "report_settings": {
+    "data_thresholds": {
+      "voltage": {
+        "time": "1s",
+        "value": "0.1v"
+      },
+      "current": {
+        "time": "1s",
+        "value": "0.2A"
+      },
+      "power": {
+        "time": "1s",
+        "value": "0.1v"
+      },
+      "energy": {
+        "time": "1s",
+        "value": "0.2A"
+      }
+    },
+    "log_upload": {
+      "enabled": false,
+      "upload_until": "2018-10-05 14:57:38 +0530"
+    },
+    "live_stream": {
+      "enabled": true,
+      "stream_until": "2018-10-05 14:57:38 +0530"
+    }
+  },
+  "authorized_site_inventory": {
+    "inverters": [
+      "abc-12345",
+      "def-23423",
+      "xyz-98883"
+    ],
+    "acbs": [
+      "wer-1234",
+      "r02-393939",
+      "something"
+    ],
+    "mats": [
+      "site-mats-01"
+    ]
+  },
+  "licenses": {
+    "multi_mode_enabled": true,
+    "control_load_branch_circuits": false
+  },
+  "grid_profile": {}
+}
