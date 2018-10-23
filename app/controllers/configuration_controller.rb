@@ -7,7 +7,7 @@ class ConfigurationController < ApplicationController
     serial_number = params[:serial_number]
     activation = Activation.where('provisioned.accb': serial_number).first
     unless activation
-      activation = Activation.new({provisioned: {accb: serial_number}})
+      activation = Activation.new({provisioned: {accb: [serial_number]}})
       activation.save!
     end
     comm_settings = config['comm_settings']
@@ -15,6 +15,7 @@ class ConfigurationController < ApplicationController
     comm_settings['mqtt_command_stream'] = "gateways/command-stream/#{serial_number}"
     comm_settings['mqtt_response_stream'] = "gateways/response-stream/#{serial_number}"
     comm_settings['mqtt_live_stream'] = "gateways/live-stream/#{serial_number}"
+    config['authorized_site_inventory'] = activation.provisioned
     render json: config
   end
 end
