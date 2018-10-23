@@ -1,13 +1,11 @@
 class Activation
 	include Mongoid::Document
 	include Mongoid::Timestamps
-	include Mongoid::Autoinc
 	include Mongoid::Attributes::Dynamic
 
 	TYPES = ["accb", "mats", "pcus", "batteries", "meters", "qrelays"]
 
 	# basic site parameters
-	field :siteid, type: Integer
 	field :name, type: String
 	field :location_zip, type: String
 	field :location_city, type: String
@@ -24,5 +22,8 @@ class Activation
 	field :discovered_count, type: Hash
 	field :discovered, type: Hash
 
-	increments :siteid
+  def siteid
+    Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
+  end
+
 end
