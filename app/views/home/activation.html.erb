@@ -27,16 +27,16 @@
 
 <% Activation::TYPES.each do |type| %>
   <div>
-    <h4><%= type %></h4>
-    <table class="table table-striped">
+    <h3><%= type %></h3>
+    <table class="table table-striped table-condensed table-hover" style="border: 1px solid black;margin: 2px;">
       <tr>
         <th>Provisioned</th>
-        <th>Provisioned</th>
+        <th>Discovered</th>
       </tr>
       <% [@activation.provisioned_count[type], @activation.discovered_count[type]].max.times do |index| %>
         <tr>
-          <td><%= @activation.provisioned[type].sort[index] %></td>
-          <td><%= @activation.discovered[type].sort[index] %></td>
+          <td><%= @activation.provisioned[type][index] %></td>
+          <td><%= @activation.discovered[type][index] %></td>
         </tr>
       <% end %>
     </table>

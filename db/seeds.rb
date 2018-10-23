@@ -9,10 +9,10 @@ end
 MIN_MAX = {
   "accb" => [1,1],
   "mats" => [1,1],
-  "pcus" => [5,12],
+  "pcus" => [4,12],
   "batteries" => [1,4],
-  "meters" => [2,4],
-  "qrelays" => [1,1]
+  "meters" => [1,4],
+  "qrelays" => [1,3]
 }
 
 def main
@@ -31,14 +31,15 @@ def main
 
   Activation::TYPES.each do |type|
     act.provisioned_count[type] = generate_count(*MIN_MAX[type])
+    act.provisioned[type] ||= []
     act.provisioned_count[type].times do
-      act.provisioned[type] ||= []
       act.provisioned[type] << serial_no
     end
     act.discovered_count[type] = generate_count(*MIN_MAX[type])
-    act.discovered_count[type].times do
-      act.discovered[type] ||= []
-      act.discovered[type] << serial_no
+    min = MIN_MAX[type][0]
+    act.discovered[type] ||= []
+    act.discovered_count[type].times do |index|
+      act.discovered[type] << (index < min ? act.provisioned[type][index] : serial_no)
     end
   end
 
