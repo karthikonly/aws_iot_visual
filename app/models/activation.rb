@@ -22,10 +22,11 @@ class Activation
 	field :discovered_count, type: Hash
 	field :discovered, type: Hash
 
-	# before_save :update_siteid
+	before_save :update_siteid
 
-  def siteid
-    Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
+  def update_siteid
+		self.id |= BSON::ObjectId.from_time(Time.now.utc)
+    self['siteid'] |= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
   end
 
   def full_address
