@@ -10,6 +10,5 @@ class HomeController < ApplicationController
 
   def activation
     @activation = Activation.find(params[:id])
-    render json: @activation
   end
 end
