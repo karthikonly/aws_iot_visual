@@ -1,5 +1,3 @@
-require 'autoinc'
-
 class Activation
 	include Mongoid::Document
 	include Mongoid::Timestamps
