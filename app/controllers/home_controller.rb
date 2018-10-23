@@ -7,4 +7,9 @@ class HomeController < ApplicationController
   def activations
     @activations = Activation.all
   end
+
+  def activation
+    @activation = Activation.find(params[:id])
+    render json: @activation
+  end
 end

@@ -9,7 +9,7 @@
     </tr>
     <% @activations.each do |activation| %>
       <tr>
-        <td><%= activation.siteid%></td>
+        <td><%= link_to(activation.siteid, "/activations/"+activation.id)  %></td>
         <td><%= activation.name %></td>
         <td><%= activation.full_address %></td>
       </tr>
