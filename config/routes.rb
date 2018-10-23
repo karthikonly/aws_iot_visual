@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/api/activations', to: 'activations#get'
   post '/api/activations', to: 'activations#create'
   put '/api/activations', to: 'activations#update'
+  get '/api/activations/:id', to: 'activations#details'
   get '/api/devices', to: 'devices#get'
 
   resources :gateways, only: [:index]
