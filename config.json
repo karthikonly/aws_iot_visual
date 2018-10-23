@@ -1,7 +1,7 @@
 {
   "comm_settings": {
     "site_id": "234234234",
-    "mqtt_url": "mqtts://a1n5u982zrd0mu.iot.us-east-1.amazonaws.com",
+    "mqtt_url": "a1n5u982zrd0mu.iot.us-east-1.amazonaws.com",
     "mqtt_ca_cert": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoSEwDQYJKoZIhvcNAQEL\n...----END CERTIFICATE-----\n",
     "mqtt_client_cert": "-----BEGIN CERTIFICATE-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoSEwDQYJKoZIhvcNAQEL\n...----END CERTIFICATE-----\n",
     "mqtt_private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIDWTCCAkGgAwIBAgIUeM4+UMZnAsRSR1qQ1NJBUakPoYJKoZIhvcNAQEL\n...-----END RSA PRIVATE KEY-----\n",
