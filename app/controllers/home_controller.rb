@@ -10,5 +10,6 @@ class HomeController < ApplicationController
 
   def activation
     @activation = Activation.find(params[:id])
+    helpers.process_serial_numbers(@activation)
   end
 end
