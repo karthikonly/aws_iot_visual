@@ -39,7 +39,7 @@ class Activation
   end
 
   def full_address
-    [location.address, location.city, location.zipcode, location.state, location.country].compact.join(', ')
+    location ? [location.address, location.city, location.zipcode, location.state, location.country].compact.join(', ') : ""
   end
 
   def process_inv_message(inventory_report)
