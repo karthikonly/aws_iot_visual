@@ -26,7 +26,7 @@ def main
   act.location.zipcode = FFaker::AddressUS.zip_code
   act.location.country = "United States"
 
-  act.discovered_count = {}
+  discovered_count = {}
   act.discovered = {}
   act.provisioned_count = {}
   act.provisioned = {}
@@ -37,10 +37,10 @@ def main
     act.provisioned_count[type].times do
       act.provisioned[type] << serial_no
     end
-    act.discovered_count[type] = generate_count(*MIN_MAX[type])
+    discovered_count[type] = generate_count(*MIN_MAX[type])
     min = MIN_MAX[type][0]
     act.discovered[type] ||= []
-    act.discovered_count[type].times do |index|
+    discovered_count[type].times do |index|
       act.discovered[type] << (index < min ? act.provisioned[type][index] : serial_no)
     end
   end
