@@ -34,7 +34,9 @@
     <h3 align="center"><%= type %></h3>
     <table class="table table-striped table-condensed table-hover" style="margin: 2px;">
       <tr>
-        <th>Provisioned<span class="badge"><%= @activation.provisioned_count[type]%></span></th>
+        <th>Provisioned<span class="badge">
+          <%= @activation.provisioned[type].count%>/<%= @activation.provisioned_count[type]%>
+        </span></th>
         <th>Discovered</th>
       </tr>
       <% [@activation.provisioned[type].count, @activation.discovered[type].count].max.times do |index| %>
