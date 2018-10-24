@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/api/devices', to: 'devices#get'
   post '/api/activations/:id/inventory', to: 'activations#inventory'
   post '/api/activations/:id/serial', to: 'activations#serial'
+  delete '/api/activations/:id/serial', to: 'activations#delete_serial'
 
   get '/home/index', to: 'home#index'
   resources :gateways, only: [:index]

@@ -46,6 +46,11 @@ class ActivationsController < ApplicationController
     render json: {}
   end
 
+  def delete_serial
+    Activation.where(siteid: params['id']).delete
+    render json: {}
+  end
+
   def details
     activation = Activation.where(siteid: params[:id]).without(:created_at, :updated_at).first
     activation['discovered_count'] = {}

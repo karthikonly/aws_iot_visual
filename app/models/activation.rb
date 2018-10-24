@@ -33,6 +33,7 @@ class Activation
   def update_siteid
 		self.id ||= BSON::ObjectId.from_time(Time.now.utc)
     self.siteid ||= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
+    self.location ||= Location.new
     set_val(:provisioned_count, 0)
     set_val(:provisioned, [])
     set_val(:discovered, [])
