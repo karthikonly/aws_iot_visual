@@ -5,7 +5,7 @@ class ActivationsController < ApplicationController
   end
 
   def create
-    activation = Activation.new()
+    activation = Activation.new
     activation['name'] = params['name']
     activation['location'] = Location.new params.require(:location).permit(:city, :country, :state, :zipcode, :address)
     activation.stage = 1
@@ -17,11 +17,19 @@ class ActivationsController < ApplicationController
   end
 
   def inventory
-
+    count = {}
+    Activation::TYPES.each do |type|
+      count["provisioned_count.#{type}"] = params[type] if params[type]
+    end
+    Activation.where(siteid: params['id']).set(count)
+    render json: {}
   end
 
   def serial
-
+    serial = {}
+    serial["provisioned.#{params['type']}"] = params['serial']
+    Activation.where(siteid: params['id']).add_to_set(serial)
+    render json: {}
   end
 
   def details
