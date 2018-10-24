@@ -1,5 +1,5 @@
 class MqttClient
-  attr_accessor :mqtt_client, :data_stream_topic, :logger, :mirror_topic
+  attr_accessor :mqtt_client, :data_stream_topic, :logger
 
   def initialize(config={})
     @logger = Logger.new(STDOUT)
@@ -12,7 +12,6 @@ class MqttClient
     client.ca_file   = config[:ca_file]
     client.connect
     @data_stream_topic = config[:data_stream_topic]
-    @mirror_topic = config[:mirror_stream_topic]
     @mqtt_client = client
   end
 
@@ -21,7 +20,6 @@ class MqttClient
     logger.info "started listening to: #{data_stream_topic}"
 
     mqtt_client.get do |topic, message|
-      send_message(mirror_topic, message)
       process_each_message(topic, JSON.parse(message))
     end
   end
@@ -31,9 +29,6 @@ class MqttClient
   end
 
   def process_each_message(topic, data)
-    serial = data['header']['serial_number']
-    return unless serial
-    $redis.hmset serial, :timestamp, Time.now.to_s
-    ChartLine.process(data)
+    logger.info "#{topic}: #{data}"
   end
 end
