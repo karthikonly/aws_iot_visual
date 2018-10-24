@@ -17,7 +17,7 @@ class ActivationsController < ApplicationController
   end
 
   def details
-    activation = Activation.where(siteid: params[:id]).only(:name, :siteid, :location, :provisioned, :provisioned_count).first
+    activation = Activation.where(siteid: params[:id]).without(:created_at, :updated_at).first
     render json: activation.to_json(except: :_id)
   end
 end
