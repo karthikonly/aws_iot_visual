@@ -14,6 +14,20 @@ class ActivationsController < ApplicationController
   end
 
   def update
+    activation = {}
+    activation['name'] = params['name'] if params['name']
+    if params['location']
+      params.require(:location).permit(:city, :country, :state, :zipcode, :address).each do |key, value|
+        activation["location.#{key}"] = value
+      end
+    end
+    Activation.where(siteid: params['id']).set(activation)
+    render json: {}
+  end
+
+  def delete
+    Activation.where(siteid: params['id']).delete
+    render json: {}
   end
 
   def inventory
