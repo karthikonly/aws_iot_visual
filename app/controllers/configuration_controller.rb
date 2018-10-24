@@ -18,7 +18,12 @@ class ConfigurationController < ApplicationController
     comm_settings['mqtt_ca_cert'] = File.read("#{Rails.root.to_s}/public/verisign-root-ca.pem")
     comm_settings['mqtt_client_cert'] = File.read("#{Rails.root.to_s}/public/0001-cert.pem")
     comm_settings['mqtt_private_key'] = File.read("#{Rails.root.to_s}/public/0001-private.key")
-    config['authorized_site_inventory'] = activation.provisioned
+    activation.provisioned.each do |type, list|
+      config['devices'][type] ||= {}
+      list.each do |serial|
+        config['devices'][type][serial] = { admin_state: "provisioned"}
+      end
+    end
     render json: config
   end
 end

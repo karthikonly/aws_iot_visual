@@ -44,21 +44,7 @@
       "stream_until": "2018-10-05 14:57:38 +0530"
     }
   },
-  "authorized_site_inventory": {
-    "inverters": [
-      "abc-12345",
-      "def-23423",
-      "xyz-98883"
-    ],
-    "acbs": [
-      "wer-1234",
-      "r02-393939",
-      "something"
-    ],
-    "mats": [
-      "site-mats-01"
-    ]
-  },
+  "devices": {},
   "licenses": {
     "multi_mode_enabled": true,
     "control_load_branch_circuits": false
