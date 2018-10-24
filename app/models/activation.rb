@@ -12,12 +12,12 @@ class Activation
 	field :stage, type: Integer
 
 	# provisioned information
-	field :provisioned_count, type: Hash, default: {}
-	field :provisioned, type: Hash, default: {}
+	embeds_one :provisioned_count, as: :inventory_count, class_name: 'InventoryCount'
+	embeds_one :provisioned, as: :inventory, class_name: 'Inventory'
 
 	# discovered information
-	field :discovered_count, type: Hash, default: {}
-	field :discovered, type: Hash, default: {}
+	embeds_one :discovered_count, as: :inventory_count, class_name: 'InventoryCount'
+	embeds_one :discovered, as: :inventory, class_name: 'Inventory'
 
 	embeds_one :location, class_name: 'Location'
 
@@ -29,6 +29,6 @@ class Activation
   end
 
   def full_address
-    [self.location_address, self.location_city, self.location_zip, self.location_state].join(', ')
+    [self.location.address, self.location.city, self.location.zipcode, self.location.state].join(', ')
   end
 end
