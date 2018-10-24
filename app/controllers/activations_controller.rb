@@ -16,8 +16,20 @@ class ActivationsController < ApplicationController
   def update
   end
 
+  def inventory
+
+  end
+
+  def serial
+
+  end
+
   def details
     activation = Activation.where(siteid: params[:id]).without(:created_at, :updated_at).first
+    activation['discovered_count'] = {}
+    activation.discovered.each do |device, serial|
+      activation['discovered_count'][device] = serial.count
+    end
     render json: activation.to_json(except: :_id)
   end
 end

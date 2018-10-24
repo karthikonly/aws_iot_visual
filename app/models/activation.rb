@@ -17,7 +17,6 @@ class Activation
 	field :provisioned, type: Hash, default: {}
 
 	# discovered information
-	field :discovered_count, type: Hash, default: {}
 	field :discovered, type: Hash, default: {}
 
 	embeds_one :location, class_name: 'Location'
@@ -35,7 +34,6 @@ class Activation
 		self.id ||= BSON::ObjectId.from_time(Time.now.utc)
     self.siteid ||= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
     set_val(:provisioned_count, 0)
-    set_val(:discovered_count, 0)
     set_val(:provisioned, [])
     set_val(:discovered, [])
   end
