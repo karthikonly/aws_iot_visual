@@ -8,20 +8,18 @@ class Activation
 	# basic site parameters
   field :siteid, type: String
 	field :name, type: String
-	field :location_zip, type: String
-	field :location_city, type: String
-	field :location_state, type: String
-	field :location_address, type: String
 	
 	field :stage, type: Integer
 
 	# provisioned information
-	field :provisioned_count, type: Hash
-	field :provisioned, type: Hash
+	field :provisioned_count, type: Hash, default: {}
+	field :provisioned, type: Hash, default: {}
 
 	# discovered information
-	field :discovered_count, type: Hash
-	field :discovered, type: Hash
+	field :discovered_count, type: Hash, default: {}
+	field :discovered, type: Hash, default: {}
+
+	embeds_one :location, class_name: 'Location'
 
 	before_save :update_siteid
 

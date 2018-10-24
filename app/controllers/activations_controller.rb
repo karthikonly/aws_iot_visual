@@ -6,9 +6,8 @@ class ActivationsController < ApplicationController
 
   def create
     activation = Activation.new()
-    params['activation'].each do |key, value|
-      activation[key] = value
-    end
+    activation['name'] = params['name']
+    activation['location'] = Location.new params.require(:location).permit(:city, :country, :state, :zipcode, :address)
     activation.stage = 1
     activation.save!
     render json: {siteid: activation.siteid}
