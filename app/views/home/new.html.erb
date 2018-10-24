@@ -1,0 +1,30 @@
+<div>
+  <h3>Create a new Site</h3>
+  <%= form_tag("/activations/create", method: "post") do %>
+    <table class="table table-striped">
+      <tr>
+        <td>Site Name</td>
+        <td><%= text_field_tag('activation[name]') %></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><%= text_field_tag('activation[location_address]') %></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td><%= text_field_tag('activation[location_city]') %></td>
+      </tr>
+      <tr>
+        <td>Zip</td>
+        <td><%= text_field_tag('activation[location_zip]') %></td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td><%= text_field_tag('activation[location_state]') %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= submit_tag("Create", class: 'btn btn-primary') %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>

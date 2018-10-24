@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'home#activations'
+  get '/activations/new', to: 'home#new'
+  post '/activations/create', to: 'home#create'
   get '/activations/:id', to: 'home#activation'
 
   post '/api/configuration', to: 'configuration#get'
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   get '/api/activations/:id', to: 'activations#details'
   get '/api/devices', to: 'devices#get'
 
+  get '/home/index', to: 'home#index'
   resources :gateways, only: [:index]
   resources :ts_names, only: [:index]
   resources :series, only: [:index]

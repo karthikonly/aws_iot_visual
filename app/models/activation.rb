@@ -7,6 +7,7 @@ class Activation
 
 	# basic site parameters
   field :siteid, type: String
+
 	field :name, type: String
 	field :location_zip, type: String
 	field :location_city, type: String
@@ -25,9 +26,20 @@ class Activation
 
 	before_save :update_siteid
 
+  def set_val(attribute, value)
+    self[attribute] ||= {}
+    TYPES.each do |type|
+      self[attribute][type] ||= value
+    end
+  end
+
   def update_siteid
 		self.id ||= BSON::ObjectId.from_time(Time.now.utc)
     self.siteid ||= Digest::SHA2.hexdigest(self.id)[0..5].upcase.to_i(16)
+    set_val(:provisioned_count, 0)
+    set_val(:discovered_count, 0)
+    set_val(:provisioned, [])
+    set_val(:discovered, [])
   end
 
   def full_address

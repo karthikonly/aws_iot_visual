@@ -3,6 +3,7 @@ module ApplicationHelper
     local_discovered = {}
     local_provisioned = {}
     Activation::TYPES.each do |type|
+      next unless (activation.discovered[type] && activation.provisioned[type])
       local_discovered[type] ||= []
       local_provisioned[type] ||= []
       activation.discovered[type].each do |serial|
