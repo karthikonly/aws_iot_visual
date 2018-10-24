@@ -6,5 +6,5 @@ class Location
   field :city, type: String
   field :country, type: String
   field :state, type: String
-  field :zipcode, type: Integer
+  field :zipcode, type: String
 end

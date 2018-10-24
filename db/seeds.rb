@@ -18,11 +18,13 @@ MIN_MAX = {
 def main
   act = Activation.new
   act.name = FFaker::Name.name
+  act.location = Location.new
   act.stage = 0
-  act.location_address = FFaker::AddressUS.street_address
-  act.location_city = FFaker::AddressUS.city
-  act.location_state = FFaker::AddressUS.state
-  act.location_zip = FFaker::AddressUS.zip_code
+  act.location.address = FFaker::AddressUS.street_address
+  act.location.city = FFaker::AddressUS.city
+  act.location.state = FFaker::AddressUS.state
+  act.location.zipcode = FFaker::AddressUS.zip_code
+  act.location.country = "United States"
 
   act.discovered_count = {}
   act.discovered = {}

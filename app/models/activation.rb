@@ -41,6 +41,6 @@ class Activation
   end
 
   def full_address
-    [self.location_address, self.location_city, self.location_zip, self.location_state].join(', ')
+    [location.address, location.city, location.zipcode, location.state, location.country].compact.join(', ')
   end
 end

@@ -19,6 +19,9 @@ class HomeController < ApplicationController
 
   def create
     @activation = Activation.create(activation_params)
+    @activation.provisioned_count.each do |k, v|
+      @activation.provisioned_count[k] = v.to_i
+    end
     @activation.stage = 1
     if @activation.save
       redirect_to action: 'activations'
@@ -30,6 +33,6 @@ class HomeController < ApplicationController
   protected
 
   def activation_params
-    params.require(:activation).permit(:name, :location_address, :location_city, :location_zip, :location_state, provisioned_count: {})
+    params.require(:activation).permit(:name, location: {}, provisioned_count: {})
   end
 end
