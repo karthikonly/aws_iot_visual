@@ -41,4 +41,20 @@ class Activation
   def full_address
     [location.address, location.city, location.zipcode, location.state, location.country].compact.join(', ')
   end
+
+  def process_inv_message(inventory_report)
+    inventory_report.each do |serial, values|
+      admin_state = values["admin_state"]
+      type = values["device_type"]
+      case admin_state
+      when 'In-Service', 'Discovered'
+        self.discovered[type] << serial unless self.discovered[type].include? serial
+      when 'Provisioned'
+        # Do nothing
+      else
+        logger.error "Unknown Admin State: #{admin_state}"
+      end
+    end
+    self.save
+  end
 end

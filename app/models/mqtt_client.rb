@@ -30,5 +30,13 @@ class MqttClient
 
   def process_each_message(topic, data)
     logger.info "#{topic}: #{data}"
+    serial_number = data.dig('header','serial_number')
+    return unless serial_number
+    activation = Activation.where('provisioned.accb': serial_number).first
+    unless activation
+      logger.info "Could not find activation. skipping message."
+    else
+      activation.process_inv_message(data["inventory"])
+    end
   end
 end

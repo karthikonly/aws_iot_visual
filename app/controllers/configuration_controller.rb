@@ -21,7 +21,7 @@ class ConfigurationController < ApplicationController
     activation.provisioned.each do |type, list|
       config['devices'][type] ||= {}
       list.each do |serial|
-        config['devices'][type][serial] = { admin_state: "provisioned"}
+        config['devices'][type][serial] = { admin_state: "Provisioned"}
       end
     end
     render json: config

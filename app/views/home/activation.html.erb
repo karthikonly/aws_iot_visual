@@ -43,12 +43,12 @@
         <tr>
           <td>
             <% val = @activation.provisioned.dig(type, index); if val %>
-              <%= button_tag(val[:serial], type: 'button', class: 'btn btn-sm '+ val[:class]) %>
+              <%= content_tag(:span, val[:serial], class: "label " + val[:class], style: "font-size: 90%") %>
             <% end %>
           </td>
           <td>
             <% val = @activation.discovered.dig(type, index); if val %>
-              <%= button_tag(val[:serial], type: 'button', class: 'btn btn-sm '+ val[:class]) %>
+              <%= content_tag(:span, val[:serial], class: "label " + val[:class], style: "font-size: 90%") %>
             <% end %>
           </td>
         </tr>

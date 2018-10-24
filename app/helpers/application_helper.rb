@@ -7,10 +7,10 @@ module ApplicationHelper
       local_discovered[type] ||= []
       local_provisioned[type] ||= []
       activation.discovered[type].each do |serial|
-        local_discovered[type] << (activation.provisioned[type].include?(serial) ? {serial: serial, class: 'btn-success'} : {serial: serial, class: 'btn-danger'})
+        local_discovered[type] << (activation.provisioned[type].include?(serial) ? {serial: serial, class: 'label-success'} : {serial: serial, class: 'label-danger'})
       end
       activation.provisioned[type].each do |serial|
-        local_provisioned[type] << (activation.discovered[type].include?(serial) ? {serial: serial, class: 'btn-success'} : {serial: serial, class: 'btn-danger'})
+        local_provisioned[type] << (activation.discovered[type].include?(serial) ? {serial: serial, class: 'label-success'} : {serial: serial, class: 'label-danger'})
       end
     end
     activation.discovered = local_discovered
