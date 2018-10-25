@@ -7,7 +7,7 @@ class ConfigurationController < ApplicationController
     serial_number = params[:serial_number]
     activation = Activation.where('provisioned.accb': serial_number).first
     unless activation
-      activation = Activation.new({provisioned: {accb: [serial_number]}, stage: 0})
+      activation = Activation.new({discovered: {accb: [serial_number]}, stage: 0})
       activation.save!
     end
     comm_settings = config['comm_settings']
