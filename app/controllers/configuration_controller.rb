@@ -5,7 +5,7 @@ class ConfigurationController < ApplicationController
   def get
     config = JSON.parse(File.read("#{Rails.root.to_s}/config.json"))
     serial_number = params[:serial_number]
-    activation = Activation.where('provisioned.accb': serial_number).first
+    activation = Activation.or({'provisioned.accb': serial_number}, {'discovered.accb': serial_number}).first
     unless activation
       activation = Activation.new
       activation.discovered = {}
