@@ -44,7 +44,7 @@ class Activation
 
   def process_inv_message(inventory_report)
     inventory_report.each do |serial, values|
-      admin_state = values["admin_state"]
+      admin_state = values["oper_state"]
       type = values["device_type"]
       case admin_state
       when 'In-Service', 'Discovered'
