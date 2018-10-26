@@ -32,7 +32,7 @@ class MqttClient
     logger.info "#{topic}: #{data}"
     serial_number = data.dig('header','serial_number')
     return unless serial_number
-    activation = Activation.where('provisioned.accb': serial_number).first
+    activation = Activation.or({'provisioned.accb': serial_number}, {'discovered.accb': serial_number}).first
     unless activation
       logger.info "Could not find activation. skipping message."
     else
